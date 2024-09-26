@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 /**
  * @method static find($id)
  * @method static create(string[] $array)
+ * @method static findOrFail($id)
  */
 class Job extends Model
 {
