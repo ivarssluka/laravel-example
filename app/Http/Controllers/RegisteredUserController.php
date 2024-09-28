@@ -20,7 +20,6 @@ class RegisteredUserController extends Controller
 
     public function store(): RedirectResponse
     {
-        // validate
         $attributes = request()->validate([
             'first_name' => ['required'],
             'last_name' => ['required'],
@@ -28,11 +27,8 @@ class RegisteredUserController extends Controller
             'password' => ['required', Password::min(6), 'confirmed']
         ]);
 
-        // create the user
         $user = User::create($attributes);
-        // log in
         Auth::login($user);
-        // redirect somewhere
         return redirect('/jobs');
     }
 }

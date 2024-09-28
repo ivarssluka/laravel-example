@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class JobController extends Controller
 {
@@ -67,7 +70,6 @@ class JobController extends Controller
     public function destroy(Job $job): Application|Redirector|RedirectResponse
     {
         $job->delete();
-        // Redirect to the jobs page
         return redirect('/jobs');
     }
 }
